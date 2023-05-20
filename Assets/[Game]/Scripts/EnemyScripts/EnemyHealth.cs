@@ -27,5 +27,6 @@ public class EnemyHealth : MonoBehaviour
         
         //TODO play death animation, play death sound, etc.
         Debug.Log("Enemy died.");
+        Destroy(gameObject);
     }
 }
