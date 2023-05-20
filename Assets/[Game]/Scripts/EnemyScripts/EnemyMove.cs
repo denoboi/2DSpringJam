@@ -6,13 +6,11 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     
-    [SerializeField] private float _speed = 1.5f;
-    
-    EnemyAttack _enemyAttack;
-
+    [field:SerializeField]
+    public float Speed { get; set; }
     [SerializeField] private bool _shouldMove = true;
     
-    public EnemyAttack EnemyAttack => _enemyAttack ??= GetComponent<EnemyAttack>();
+   
     private GameObject _player;
 
     private void Start()
@@ -30,7 +28,7 @@ public class EnemyMove : MonoBehaviour
         if (_player == null) return;
         if(!_shouldMove) return;
         
-        transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
        
     }
     

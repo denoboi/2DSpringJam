@@ -9,6 +9,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private int _damage = 5;
     [SerializeField] private float _attackRate = 1f;
     [SerializeField] private float _attackRange = 3f;
+
+    [SerializeField] private EnemyData _data;
     
     private GameObject _player;
     private EnemyMove _enemyMove;
@@ -19,6 +21,7 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        SetEnemyValues();
     }
 
     void Update()
@@ -29,6 +32,12 @@ public class EnemyAttack : MonoBehaviour
         
         // Check if the enemy is within attacking range of the player
         CheckDistance();
+    }
+
+    private void SetEnemyValues()
+    {
+        _damage = _data.Damage;
+        EnemyMove.Speed = _data.Speed;
     }
 
     void CheckDistance()
