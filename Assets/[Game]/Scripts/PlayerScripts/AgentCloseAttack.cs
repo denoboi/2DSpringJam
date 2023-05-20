@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentAttack : MonoBehaviour
+public class AgentCloseAttack : MonoBehaviour
 {
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;

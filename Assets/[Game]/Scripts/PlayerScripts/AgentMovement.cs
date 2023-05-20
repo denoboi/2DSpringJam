@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Agent : MonoBehaviour
+public class AgentMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private PlayerInput _playerInput;
@@ -53,11 +53,11 @@ public class Agent : MonoBehaviour
     {
         if(input.x > 0)
         {
-            SpriteRenderer.flipX = false;
+            transform.localRotation = Quaternion.Euler(0,0,0);
         }
         else if(input.x < 0)
         {
-            SpriteRenderer.flipX = true;
+            transform.localRotation = Quaternion.Euler(0,180,0);
         }
     }
 }
