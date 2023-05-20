@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnData.spawnRate);
-
+            
             var spawnPoint = spawnData.spawnPoints[Random.Range(0, spawnData.spawnPoints.Length)];
             Instantiate(spawnData.enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
         }

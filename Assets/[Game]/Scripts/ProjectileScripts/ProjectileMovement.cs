@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //TODO bu scripte transform translate yapilabilir.
-public class ProjectileBehaviour : MonoBehaviour
+public class ProjectileMovement : MonoBehaviour
 {
     [SerializeField]
     private float Speed = 4.5f;
     public float rotationSpeed = 100f; // Adjust the speed of rotation as desired
+    
 
     private void Start()
     {
@@ -27,17 +28,5 @@ public class ProjectileBehaviour : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        var enemy = collision.gameObject.GetComponentInChildren<EnemyHealth>();
-
-        if (enemy != null)
-        {
-            enemy.TakeDamage(20);
-            Destroy(gameObject);
-        }
-            
-        
-        
-    }
+    
 }

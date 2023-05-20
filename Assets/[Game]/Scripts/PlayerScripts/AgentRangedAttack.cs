@@ -9,9 +9,7 @@ public class AgentRangedAttack : MonoBehaviour
     private Transform firePoint;
     [SerializeField]
     private GameObject bulletPrefab;
-
-    public float bulletForce = 20f;
-
+    
     [SerializeField] public bool CanRangeAttack { get; set; }
     
     

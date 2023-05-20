@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 0
+  collectiblePrefab: {fileID: 7943619153645402662, guid: a76c7592afb7310449a325c24a9bac2e, type: 3}
 --- !u!61 &2424808320274097915
 BoxCollider2D:
   m_ObjectHideFlags: 0

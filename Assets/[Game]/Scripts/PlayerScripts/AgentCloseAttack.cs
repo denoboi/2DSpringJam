@@ -8,7 +8,9 @@ public class AgentCloseAttack : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private int _attackDamage = 5;
+    
+    
+    [SerializeField] private PlayerData _playerData;
 
     private void Update()
     {
@@ -30,7 +32,7 @@ public class AgentCloseAttack : MonoBehaviour
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(_attackDamage);
+                enemyHealth.TakeDamage(_playerData.Damage);
                 Debug.Log("Enemy took damage.");
             }
         }
