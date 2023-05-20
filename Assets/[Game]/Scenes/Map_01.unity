@@ -195,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 353098736}
   - component: {fileID: 353098737}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Avatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 571846875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1572,6 +1572,37 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!1 &600854052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600854053}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600854053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600854052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.57, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 628041133}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &628041132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,6 +1638,7 @@ Transform:
   m_Children:
   - {fileID: 2042039650}
   - {fileID: 338251557}
+  - {fileID: 600854053}
   m_Father: {fileID: 1835850938}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1672,22 +1704,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 0
---- !u!70 &628041138
-CapsuleCollider2D:
+--- !u!114 &628041138
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628041132}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.06855816, y: 0}
-  m_Size: {x: 0.84806454, y: 1}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cae73478fa00ea4eb3cbc010aba4eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackPoint: {fileID: 600854053}
+  _attackRange: 0.5
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _attackDamage: 5
 --- !u!1001 &659006479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2048,7 +2082,9 @@ GameObject:
   - component: {fileID: 1246870818}
   - component: {fileID: 1246870819}
   - component: {fileID: 1246870820}
-  m_Layer: 0
+  - component: {fileID: 1246870821}
+  - component: {fileID: 1246870822}
+  m_Layer: 7
   m_Name: EnemyAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2119,9 +2155,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f3e200b5a83a649a7c521dba3cc7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
+  _damage: 3
   _attackRate: 1
-  _attackRange: 3
+  _attackRange: 2
+--- !u!114 &1246870821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246870816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6ce74e466e432190c098a34210cc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _currentHealth: 0
+--- !u!61 &1246870822
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246870816}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1260323443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,7 +3475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1722753304}
   - component: {fileID: 1722753305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

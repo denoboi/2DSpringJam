@@ -11,10 +11,10 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private float _attackRange = 3f;
     
     private GameObject _player;
-    private EnemyAgent _enemyAgent;
+    private EnemyMove _enemyMove;
     private bool _isAttacking;
     
-    public EnemyAgent EnemyAgent => _enemyAgent ??= GetComponent<EnemyAgent>();
+    public EnemyMove EnemyMove => _enemyMove ??= GetComponent<EnemyMove>();
 
     private void Start()
     {
@@ -40,7 +40,7 @@ public class EnemyAttack : MonoBehaviour
         }
         else if (distanceToPlayer > _attackRange)
         {
-            EnemyAgent.StartMoving();
+            EnemyMove.StartMoving();
         }
     }
 
@@ -67,7 +67,7 @@ public class EnemyAttack : MonoBehaviour
            
             // Apply damage to the player or trigger any other desired effects
             _player.GetComponentInChildren<PlayerHealth>().TakeDamage(_damage);
-            EnemyAgent.StopMoving();
+            EnemyMove.StopMoving();
         }
         
 
@@ -75,7 +75,7 @@ public class EnemyAttack : MonoBehaviour
         // Example: GetComponent<Animator>().ResetTrigger("Attack");
 
         _isAttacking = false;
-        EnemyAgent.FollowPlayer();
+        EnemyMove.FollowPlayer();
     }
 }
 

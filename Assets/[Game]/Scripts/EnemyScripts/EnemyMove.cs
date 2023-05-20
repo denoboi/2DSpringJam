@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAgent : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     
     [SerializeField] private float _speed = 1.5f;
