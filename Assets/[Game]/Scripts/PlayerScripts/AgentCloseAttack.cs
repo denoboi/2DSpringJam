@@ -10,10 +10,12 @@ public class AgentCloseAttack : MonoBehaviour
     [SerializeField] private LayerMask _enemyLayer;
     private AgentAnimation _agentAnimation;
     private Rigidbody2D _rigidbody;
+    [SerializeField] private float dashForce = 20f; // The force of the dash
+    [SerializeField] private float dashDuration = 0.5f; 
     
     
     [SerializeField] private PlayerData _playerData;
-    AgentAnimation AgentAnimation => _agentAnimation ??= GetComponent<AgentAnimation>();
+    AgentAnimation AgentAnimation => _agentAnimation ??= GetComponentInChildren<AgentAnimation>();
     Rigidbody2D Rb2D => _rigidbody ??= GetComponent<Rigidbody2D>();
 
     private void Update()
@@ -26,8 +28,9 @@ public class AgentCloseAttack : MonoBehaviour
     {
         //TODO Play attack animation
         
-        AgentAnimation.PlayAnimation(AgentAnimationState.Attack);
-        
+       
+        AgentAnimation.Animator.SetTrigger("Attack");
+        //Dash();
         
         // Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayer);
@@ -49,6 +52,11 @@ public class AgentCloseAttack : MonoBehaviour
         if (_attackPoint == null) return;
         
         Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
+    }
+
+    void Dash()
+    {
+        //Rb2D.velocity = new Vector2(dashForce * transform.localScale.x, Rb2D.velocity) ;
     }
 
     

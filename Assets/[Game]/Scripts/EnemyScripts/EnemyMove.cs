@@ -9,9 +9,11 @@ public class EnemyMove : MonoBehaviour
     [field:SerializeField]
     public float Speed { get; set; }
     [SerializeField] private bool _shouldMove = true;
-    
-   
+
+    private EnemyAnimation _enemyAnimation;
     private GameObject _player;
+    
+    public EnemyAnimation EnemyAnimation => _enemyAnimation ??= GetComponentInChildren<EnemyAnimation>();
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class EnemyMove : MonoBehaviour
         if (_player == null) return;
         if(!_shouldMove) return;
         
+        EnemyAnimation.PlayAnimation(EnemyAnimationState.Run);
         transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
        
     }

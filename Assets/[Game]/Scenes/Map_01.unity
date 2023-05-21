@@ -3805,6 +3805,7 @@ GameObject:
   - component: {fileID: 628041134}
   - component: {fileID: 628041135}
   - component: {fileID: 628041136}
+  - component: {fileID: 628041141}
   - component: {fileID: 628041137}
   - component: {fileID: 628041138}
   - component: {fileID: 628041139}
@@ -3913,6 +3914,8 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  dashForce: 282
+  dashDuration: 0.5
   _playerData: {fileID: 11400000, guid: 5176a31dbcd5b844d8e5b7a162e50337, type: 2}
 --- !u!114 &628041139
 MonoBehaviour:
@@ -3941,6 +3944,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5176a31dbcd5b844d8e5b7a162e50337, type: 2}
+--- !u!114 &628041141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628041132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d398d081020f57b4bb1ccfe07e331989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashForce: 11312
+  dashDuration: 0.5
 --- !u!1 &643529763
 GameObject:
   m_ObjectHideFlags: 0
