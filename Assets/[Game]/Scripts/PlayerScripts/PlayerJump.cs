@@ -13,12 +13,15 @@ public class PlayerJump : MonoBehaviour
    private GroundDetector _groundDetector;
    private Rigidbody2D _rigidbody;
    private PlayerInput _playerInput; 
+   private AgentAnimation _agentAnimation;
    
    #region Props
    public Rigidbody2D Rb2D => _rigidbody ??= GetComponent<Rigidbody2D>();
    public PlayerInput PlayerInput => _playerInput ??= GetComponentInParent<PlayerInput>();
 
    public GroundDetector GroundDetector => _groundDetector ??= GetComponentInChildren<GroundDetector>();
+   
+   public AgentAnimation AgentAnimation => _agentAnimation ??= GetComponentInChildren<AgentAnimation>();
    #endregion
    
    private void Start()
@@ -36,6 +39,8 @@ public class PlayerJump : MonoBehaviour
       
    
       //TODO - Play jump animation
+      
+      AgentAnimation.PlayAnimation(AgentAnimationState.Jump);
       
    }
    

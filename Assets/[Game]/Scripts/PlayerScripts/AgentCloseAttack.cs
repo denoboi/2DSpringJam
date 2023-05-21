@@ -8,9 +8,13 @@ public class AgentCloseAttack : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayer;
+    private AgentAnimation _agentAnimation;
+    private Rigidbody2D _rigidbody;
     
     
     [SerializeField] private PlayerData _playerData;
+    AgentAnimation AgentAnimation => _agentAnimation ??= GetComponent<AgentAnimation>();
+    Rigidbody2D Rb2D => _rigidbody ??= GetComponent<Rigidbody2D>();
 
     private void Update()
     {
@@ -21,6 +25,8 @@ public class AgentCloseAttack : MonoBehaviour
     void Attack()
     {
         //TODO Play attack animation
+        
+        AgentAnimation.PlayAnimation(AgentAnimationState.Attack);
         
         
         // Detect enemies in range of attack
