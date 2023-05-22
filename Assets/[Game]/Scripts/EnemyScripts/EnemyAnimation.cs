@@ -38,6 +38,13 @@ public class EnemyAnimation : MonoBehaviour
       Animator.SetBool( name, true);
    }
    
+   public void Stop(string name)
+   {
+      Animator.SetBool( name, false);
+   }
+   
+   
+   
    
 }
 
