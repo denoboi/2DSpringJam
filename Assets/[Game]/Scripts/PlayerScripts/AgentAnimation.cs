@@ -40,6 +40,11 @@ public class AgentAnimation : MonoBehaviour
     {
         Animator.Play(name, -1, 0f);
     }
+    
+    public void PlayTrigger(string name)
+    {
+        Animator.SetTrigger(name);
+    }
 }
 
 public enum AgentAnimationState

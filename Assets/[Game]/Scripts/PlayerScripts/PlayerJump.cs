@@ -39,8 +39,8 @@ public class PlayerJump : MonoBehaviour
       
    
       //TODO - Play jump animation
-      
-      AgentAnimation.PlayAnimation(AgentAnimationState.Jump);
+      AgentAnimation.PlayTrigger("Jump");
+      //AgentAnimation.PlayAnimation(AgentAnimationState.Jump);
       
    }
    

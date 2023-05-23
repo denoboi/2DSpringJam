@@ -32,11 +32,11 @@ public class EnemyMove : MonoBehaviour
         if (_player == null) return;
         if(!_shouldMove) return;
         
-        float moveValue = Mathf.Abs(transform.position.x - _player.transform.position.x);
-        EnemyAnimation.Animator.SetFloat(Move, moveValue);
+        
+       MoveAnimation();
+       FlipEnemyDirection();
        
-        transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
-       
+       transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, Speed * Time.deltaTime);
     }
 
   
@@ -53,6 +53,28 @@ public class EnemyMove : MonoBehaviour
     {
         _shouldMove = true;
         
+    }
+
+    private void MoveAnimation()
+    {
+        float moveValue = Mathf.Abs(transform.position.x - _player.transform.position.x);
+        EnemyAnimation.Animator.SetFloat(Move, moveValue);
+    }
+
+    private void FlipEnemyDirection()
+    {
+        Vector2 direction = _player.transform.position - transform.position; // Vector pointing from enemy to player
+        float horizontalDistance = direction.x;
+
+        if (horizontalDistance < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+       
+        else if (horizontalDistance > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
     
 
