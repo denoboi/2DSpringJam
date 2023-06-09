@@ -10,8 +10,10 @@ public class EnemyPatrol : MonoBehaviour
    public float _speed = 2f;
    private Rigidbody2D _rb2d;
    private Transform _targetPoint;
+   private EnemyChase _enemyChase;
    
    Rigidbody2D Rb2D => _rb2d ??= GetComponent<Rigidbody2D>();
+   EnemyChase EnemyChase => _enemyChase ??= GetComponent<EnemyChase>();
 
    private void Start()
    {
@@ -26,7 +28,10 @@ public class EnemyPatrol : MonoBehaviour
    
    private void Move()
    {
-
+     
+      if(EnemyChase.IsChasing)
+         return;
+      
       Vector2 point = _targetPoint.position - transform.position;
 
       if (_targetPoint == pointB.transform)
@@ -49,8 +54,6 @@ public class EnemyPatrol : MonoBehaviour
       {
          Flip();
          _targetPoint = pointB.transform;
-         
-         
       }
       
    }
