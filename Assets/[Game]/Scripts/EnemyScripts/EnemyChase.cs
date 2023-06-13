@@ -12,6 +12,9 @@ public class EnemyChase : MonoBehaviour
 
     public bool IsChasing {get; private set;}
     
+    private SkeletonAttack _skeletonAttack;
+    public SkeletonAttack SkeletonAttack => _skeletonAttack ??= GetComponent<SkeletonAttack>();
+    
     private void Start()
     {
         _player = PlayerManager.Instance.Player.transform;
@@ -31,13 +34,16 @@ public class EnemyChase : MonoBehaviour
 
     private void Chase()
     {
+        if(SkeletonAttack.CanAttack)
+            return;
+        
         float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
           
         if (!IsChasing && distanceToPlayer <= detectionRange)
         {
             IsChasing = true;
         }
-
+        
         if (IsChasing && distanceToPlayer > chaseRange)
         {
             IsChasing = false;
