@@ -37,7 +37,6 @@ public class EnemyPatrol : MonoBehaviour
          return;
       
       
-      
       float direction = isMovingRight ? 1f : -1f;
       transform.Translate(Vector2.right * direction * _speed * Time.deltaTime);
       
@@ -50,6 +49,11 @@ public class EnemyPatrol : MonoBehaviour
          else
             SwitchTarget(pointA.transform);
       }
+      
+      
+      
+      
+      
    }
 
    private void SwitchTarget(Transform newTarget)

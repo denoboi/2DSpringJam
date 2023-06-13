@@ -14,8 +14,10 @@ public class SkeletonAttack : MonoBehaviour
     private Transform _player;
     private bool _isAttacking;
     private Rigidbody2D _rigidbody2D;
-    
+    private SkeletonAnimation _skeletonAnimation;
+    private static readonly int Attack1 = Animator.StringToHash("Attack");
     public Rigidbody2D Rigidbody2D => _rigidbody2D ??= GetComponent<Rigidbody2D>();
+    public SkeletonAnimation SkeletonAnimation => _skeletonAnimation ??= GetComponent<SkeletonAnimation>();
     
     
     private void Start()
@@ -62,7 +64,7 @@ public class SkeletonAttack : MonoBehaviour
         // Play attack animation
         // Use your own animation system or Unity's Animator
         // Example: GetComponent<Animator>().SetTrigger("Attack");
-
+        SkeletonAnimation.SkeletonAnimator.SetTrigger(Attack1);
         // Wait for the attack delay
         yield return new WaitForSeconds(_attackRate);
 
