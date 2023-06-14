@@ -46,6 +46,7 @@ public class SkeletonAttack : MonoBehaviour
             Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
             EnemyPatrol._speed = 0;
             CanAttack = true;
+            
             Attack();
         }
         else if (distanceToPlayer > _attackRange)
@@ -68,22 +69,14 @@ public class SkeletonAttack : MonoBehaviour
         _isAttacking = true;
 
         // Play attack animation
-        // Use your own animation system or Unity's Animator
-        // Example: GetComponent<Animator>().SetTrigger("Attack");
+       
         SkeletonAnimation.SkeletonAnimator.SetTrigger(Attack1);
+        
         // Wait for the attack delay
         yield return new WaitForSeconds(_attackRate);
 
-        // Check if the player is still within attacking range
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.transform.position);
-        if (distanceToPlayer <= _attackRange)
-        {
-           
-            // Apply damage to the player or trigger any other desired effects
-            Debug.Log("Skeleton attacked player");
-            
-            
-        }
+     
+      
         
 
         // Stop attack animation
@@ -97,6 +90,20 @@ public class SkeletonAttack : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, _attackRange);
+    }
+
+    private void GetHit() //Animation Event
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, _player.transform.position);
+        if (distanceToPlayer <= _attackRange)
+        {
+           
+            // Apply damage to the player or trigger any other desired effects
+            Debug.Log("Skeleton attacked player");
+            _player.GetComponentInChildren<PlayerHealth>().TakeDamage(_damage);
+            _player.GetComponentInChildren<AgentAnimation>().Animator.SetTrigger("GetHit");
+            
+        }
     }
 }
 
