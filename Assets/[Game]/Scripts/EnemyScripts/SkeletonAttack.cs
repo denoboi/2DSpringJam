@@ -16,8 +16,12 @@ public class SkeletonAttack : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SkeletonAnimation _skeletonAnimation;
     private static readonly int Attack1 = Animator.StringToHash("Attack");
+    private static readonly int Idle = Animator.StringToHash("Idle");
+    private EnemyPatrol _enemyPatrol;
+    
     public Rigidbody2D Rigidbody2D => _rigidbody2D ??= GetComponent<Rigidbody2D>();
     public SkeletonAnimation SkeletonAnimation => _skeletonAnimation ??= GetComponent<SkeletonAnimation>();
+    public EnemyPatrol EnemyPatrol => _enemyPatrol ??= GetComponent<EnemyPatrol>();
     
     
     private void Start()
@@ -40,11 +44,13 @@ public class SkeletonAttack : MonoBehaviour
         if (distanceToPlayer <= _attackRange)
         {
             Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
+            EnemyPatrol._speed = 0;
             CanAttack = true;
             Attack();
         }
         else if (distanceToPlayer > _attackRange)
         {
+            EnemyPatrol._speed = 2;
             Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
             CanAttack = false;
         }
@@ -82,7 +88,7 @@ public class SkeletonAttack : MonoBehaviour
 
         // Stop attack animation
         // Example: GetComponent<Animator>().ResetTrigger("Attack");
-
+        SkeletonAnimation.SkeletonAnimator.SetTrigger(Idle);
         _isAttacking = false;
        
     }

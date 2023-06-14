@@ -14,10 +14,12 @@ public class EnemyPatrol : MonoBehaviour
    
    private Transform targetPoint;
    private bool isMovingRight = true;
+   private SkeletonAnimation _skeletonAnimation;
 
    
    Rigidbody2D Rb2D => _rb2d ??= GetComponent<Rigidbody2D>();
    EnemyChase EnemyChase => _enemyChase ??= GetComponent<EnemyChase>();
+   SkeletonAnimation SkeletonAnimation => _skeletonAnimation ??= GetComponent<SkeletonAnimation>();
 
    private void Start()
    {
@@ -31,7 +33,7 @@ public class EnemyPatrol : MonoBehaviour
    
    private void Move()
    { 
-
+      SkeletonAnimation.SkeletonAnimator.SetFloat("Speed", Mathf.Abs(_speed));
      
       if(IsChasing())
          return;
