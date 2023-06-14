@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,18 @@ public class PlayerHealth : MonoBehaviour
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth;
+
+    private void OnEnable()
+    {
+        EventManager.OnPlayerDead.AddListener(Die);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerDead.RemoveListener(Die);
+
+    }
+
 
     private void Start()
     {
@@ -29,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
         // Perform actions when the player dies
         // For example, play death animation, show game over screen, etc.
+        
         Debug.Log("Player died.");
     }
 }

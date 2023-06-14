@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SkeletonAttack : MonoBehaviour
 {
-    [SerializeField] private int _damage = 5;
+    private int _damage = 5;
     [SerializeField] private float _attackRate = 1f;
     [SerializeField] private float _attackRange = 3f;
 
@@ -23,6 +23,7 @@ public class SkeletonAttack : MonoBehaviour
     public SkeletonAnimation SkeletonAnimation => _skeletonAnimation ??= GetComponent<SkeletonAnimation>();
     public EnemyPatrol EnemyPatrol => _enemyPatrol ??= GetComponent<EnemyPatrol>();
     
+    [SerializeField] private EnemyData _data;
     
     private void Start()
     {
@@ -30,17 +31,26 @@ public class SkeletonAttack : MonoBehaviour
         if(_player == null)
             Debug.LogError("Player not found");
        
+        SetSkeletonValues();
     }
+    
 
     private void Update()
     {
         CheckDistance();
     }
+    
+    void SetSkeletonValues()
+    {
+        _damage = _data.Damage;
+        EnemyPatrol._speed = _data.Speed;
+    }
 
 
     void CheckDistance()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.transform.position);
+        float distanceToPlayer = Vector2.Distance(transform.position,
+            _player.transform.position);
         if (distanceToPlayer <= _attackRange)
         {
             Rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
@@ -75,26 +85,17 @@ public class SkeletonAttack : MonoBehaviour
         // Wait for the attack delay
         yield return new WaitForSeconds(_attackRate);
 
-     
-      
-        
-
         // Stop attack animation
         // Example: GetComponent<Animator>().ResetTrigger("Attack");
         SkeletonAnimation.SkeletonAnimator.SetTrigger(Idle);
         _isAttacking = false;
        
     }
-
-    private void OnDrawGizmos()
+    
+    private void Hit() //Animation Event
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, _attackRange);
-    }
-
-    private void GetHit() //Animation Event
-    {
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.transform.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, 
+            _player.transform.position);
         if (distanceToPlayer <= _attackRange)
         {
            
@@ -105,6 +106,14 @@ public class SkeletonAttack : MonoBehaviour
             
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _attackRange);
+    }
+
+   
 }
 
 
