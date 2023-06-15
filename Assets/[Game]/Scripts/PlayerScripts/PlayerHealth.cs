@@ -10,15 +10,18 @@ public class PlayerHealth : MonoBehaviour
     private int _maxHealth = 100;
     [SerializeField]
     private int _currentHealth;
+    
+    private AgentAnimation _agentAnimation;
+    public AgentAnimation AgentAnimation => _agentAnimation ??= GetComponentInChildren<AgentAnimation>();
 
     private void OnEnable()
     {
-        EventManager.OnPlayerDead.AddListener(Die);
+        
     }
 
     private void OnDisable()
     {
-        EventManager.OnPlayerDead.RemoveListener(Die);
+        
 
     }
 
@@ -28,9 +31,11 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void TakeDamage(int damageAmount)
     {
         _currentHealth -= damageAmount;
+        AgentAnimation.PlayTrigger("GetHit");
 
         if (_currentHealth <= 0)
         {
@@ -42,7 +47,8 @@ public class PlayerHealth : MonoBehaviour
     {
         // Perform actions when the player dies
         // For example, play death animation, show game over screen, etc.
-        
+        AgentAnimation.PlayAnimation(AgentAnimationState.Dead);
+        EventManager.OnPlayerDead?.Invoke();
         Debug.Log("Player died.");
     }
 }

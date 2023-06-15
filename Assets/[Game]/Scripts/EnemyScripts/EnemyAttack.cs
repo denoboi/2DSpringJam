@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = PlayerManager.Instance.Player;
         SetEnemyValues();
     }
 

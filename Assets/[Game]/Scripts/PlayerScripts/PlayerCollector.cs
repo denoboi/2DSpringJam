@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class PlayerCollector : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    private AgentCloseAttack _agentCloseAttack;
     
     private SpriteRenderer _spriteRenderer;
+    
+    public AgentCloseAttack AgentCloseAttack => _agentCloseAttack ??= GetComponent<AgentCloseAttack>();
     
     
     public SpriteRenderer SpriteRenderer => _spriteRenderer ??= GetComponentInChildren<SpriteRenderer>();
@@ -30,7 +32,7 @@ public class PlayerCollector : MonoBehaviour
     
     private void ApplyBonusDamage(int playerBonusDamage)
     {
-        playerData.Damage += playerBonusDamage;
+        AgentCloseAttack.DamageValue += playerBonusDamage;
     }
 
    

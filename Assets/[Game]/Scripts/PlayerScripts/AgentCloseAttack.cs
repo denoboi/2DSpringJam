@@ -8,10 +8,13 @@ public class AgentCloseAttack : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayer;
+
+    [field:SerializeField] public int DamageValue { get; set; }
+    
     private AgentAnimation _agentAnimation;
     
     
-    [SerializeField] private PlayerData _playerData;
+    
     AgentAnimation AgentAnimation => _agentAnimation ??= GetComponentInChildren<AgentAnimation>();
 
 
@@ -34,10 +37,10 @@ public class AgentCloseAttack : MonoBehaviour
             EnemyKnockBack enemyKnockBack = enemy.GetComponent<EnemyKnockBack>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(_playerData.Damage);
+                enemyHealth.TakeDamage(DamageValue);
                 enemyKnockBack.PlayKnockBack(gameObject);
                 
-                CameraShake.Instance.ShakeCamera(1,0.1f);
+                CameraShake.Instance.ShakeCamera(3,.1f);
                 Debug.Log("Enemy took damage.");
             }
         }

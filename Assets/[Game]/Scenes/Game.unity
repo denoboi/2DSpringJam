@@ -1654,8 +1654,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026684107, y: -0.5138512}
-  m_Size: {x: 1.5810874, y: 0.76027143}
+  m_Offset: {x: 0.03929231, y: -0.24534675}
+  m_Size: {x: 1.6063063, y: 1.2972976}
   m_Direction: 1
 --- !u!1 &339217297
 GameObject:
@@ -4088,9 +4088,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  dashForce: 282
-  dashDuration: 0.5
-  _playerData: {fileID: 11400000, guid: 5176a31dbcd5b844d8e5b7a162e50337, type: 2}
+  <DamageValue>k__BackingField: 5
 --- !u!114 &628041139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4117,7 +4115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1817e8d9a089f424cb69d111ac490913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 5176a31dbcd5b844d8e5b7a162e50337, type: 2}
 --- !u!114 &628041141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29243,7 +29240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1676814475
 Transform:
   m_ObjectHideFlags: 0
@@ -30715,6 +30712,10 @@ PrefabInstance:
     - target: {fileID: 2424808318793771783, guid: 554341be75ac10c4188d49ec81ece363, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2424808319943703242, guid: 554341be75ac10c4188d49ec81ece363, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 554341be75ac10c4188d49ec81ece363, type: 3}

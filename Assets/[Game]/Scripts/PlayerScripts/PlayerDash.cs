@@ -19,7 +19,7 @@ public class PlayerDash : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && !IsDashing)
         {
-            StartCoroutine(Dash());
+            //StartCoroutine(Dash());
         }
     }
 

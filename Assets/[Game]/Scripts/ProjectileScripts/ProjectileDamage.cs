@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectileDamage : MonoBehaviour
 {
-    [SerializeField] PlayerData _playerData;
+    [SerializeField] private int _projectileDamage = 10;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -13,7 +13,7 @@ public class ProjectileDamage : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.TakeDamage(_playerData.Damage);
+            enemy.TakeDamage(_projectileDamage);
             Destroy(gameObject);
         }
     }

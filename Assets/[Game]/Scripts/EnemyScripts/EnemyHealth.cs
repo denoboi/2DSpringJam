@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int _maxHealth = 100;
     [SerializeField] private int _currentHealth;
     [SerializeField] private GameObject collectiblePrefab;
+    
+    
     private void Start()
     {
         _currentHealth = _maxHealth;
@@ -15,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         _currentHealth -= damageAmount;
+       
 
         if (_currentHealth <= 0)
         {
@@ -24,7 +27,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        //TODO play death animation, play death sound, etc.
+        //TODO play enemy death animation, play death sound, etc.
+        
         Debug.Log("Enemy died.");
         Destroy(gameObject);
         var collectible = Instantiate(collectiblePrefab, transform.position + Vector3.up, Quaternion.identity);

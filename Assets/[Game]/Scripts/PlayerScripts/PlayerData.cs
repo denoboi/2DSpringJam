@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "ScriptableObjects /Player Data", order = 2)]
 public class PlayerData : ScriptableObject
 {
-    public int Damage;
+    
 }
