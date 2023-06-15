@@ -34,7 +34,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(jumpKey))
         {
-            OnJumpPressed?.Invoke();
+            //OnJumpPressed?.Invoke();
         }
     }
 

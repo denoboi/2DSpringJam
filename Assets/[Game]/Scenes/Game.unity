@@ -3976,8 +3976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313f857ac1a3b7d41b6823e0011698a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 15
-  _fallMultiplier: 200000
+  _jumpTime: 2
+  _jumpForce: 13
+  _fallMultiplier: 5
+  _jumpMultiplier: 0.25
   _isJumping: 0
 --- !u!114 &628041137
 MonoBehaviour:
@@ -7276,7 +7278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104138378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.56, y: 12.07, z: -9.915505}
+  m_LocalPosition: {x: 17.24, y: -0.1500001, z: -9.915505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27618,7 +27620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332991020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 72.56, y: 12.07, z: -9.915505}
+  m_LocalPosition: {x: 17.24, y: -0.1500001, z: -9.915505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30887,7 +30889,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835850937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.56, y: 14.29, z: 0.08449463}
+  m_LocalPosition: {x: 17.24, y: 2.07, z: 0.08449463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32664,7 +32666,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint 2
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
