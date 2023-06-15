@@ -44,31 +44,12 @@ public class PlayerJump : MonoBehaviour
 
       if (Rb2D.velocity.y > 0 && _isJumping)
       {
-         _jumpCounter += Time.deltaTime;
-         if(_jumpCounter > _jumpTime) _isJumping = false;
-         
-         float t = _jumpCounter / _jumpTime;
-         float currentJumpMultiplier = _jumpMultiplier;
-
-         if (t > 0.5f)
-         {
-            currentJumpMultiplier = _jumpMultiplier * (1 - t);
-         }
-            
-         
-         Rb2D.velocity += Vector2.up * Physics2D.gravity.y * currentJumpMultiplier * Time.deltaTime;
-
+         JumpHigher();
       }
 
       if (Input.GetButtonUp("Jump"))
       {
-         _isJumping = false;
-         _jumpCounter = 0;
-
-         if (Rb2D.velocity.y > 0)
-         {
-            Rb2D.velocity = new Vector2(Rb2D.velocity.x, Rb2D.velocity.y * 0.5f);
-         }
+         SmoothAscend();
       }
         
       
@@ -82,8 +63,36 @@ public class PlayerJump : MonoBehaviour
       Rb2D.velocity = new Vector2(Rb2D.velocity.x, _jumpForce);
       _isJumping = true;
       AgentAnimation.PlayTrigger("Jump");
-      
-   
+   }
+
+   private void JumpHigher()
+   {
+      // this is the time that the player is holding the jump button
+      _jumpCounter += Time.deltaTime;
+      if(_jumpCounter > _jumpTime) _isJumping = false;
+         
+      float t = _jumpCounter / _jumpTime;
+      float currentJumpMultiplier = _jumpMultiplier;
+
+      if (t > 0.5f)
+      {
+         currentJumpMultiplier = _jumpMultiplier * (1 - t);
+      }
+            
+         
+      Rb2D.velocity += Vector2.up * Physics2D.gravity.y * currentJumpMultiplier * Time.deltaTime;
+
+   }
+
+   void SmoothAscend()
+   {
+      _isJumping = false;
+      _jumpCounter = 0;
+
+      if (Rb2D.velocity.y > 0)
+      {
+         Rb2D.velocity = new Vector2(Rb2D.velocity.x, Rb2D.velocity.y * 0.5f);
+      }
    }
 
    private void HandleFall()

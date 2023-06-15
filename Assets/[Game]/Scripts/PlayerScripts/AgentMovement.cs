@@ -9,6 +9,8 @@ public class AgentMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private AgentAnimation _agentAnimation;
     private SpriteRenderer _spriteRenderer;
+    
+    [SerializeField] private float _agentSpeed = 8f;
 
     #region Props
     public Rigidbody2D Rb2D => _rigidbody ??= GetComponent<Rigidbody2D>();
@@ -35,7 +37,7 @@ public class AgentMovement : MonoBehaviour
                 AgentAnimation.PlayAnimation(AgentAnimationState.Run);
                 
             }
-            Rb2D.velocity = new Vector2(input.x * 5, Rb2D.velocity.y);
+            Rb2D.velocity = new Vector2(input.x * _agentSpeed, Rb2D.velocity.y);
         }
         else
         {

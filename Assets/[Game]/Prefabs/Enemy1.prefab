@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2424808319943703237
 Transform:
   m_ObjectHideFlags: 0
@@ -218,10 +218,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2424808320274097916}
   - component: {fileID: 2424808320274097919}
+  - component: {fileID: 7179849648235834388}
   - component: {fileID: 2424808320274097918}
   - component: {fileID: 2424808320274097913}
   - component: {fileID: 2424808320274097912}
-  - component: {fileID: 2424808320274097915}
+  - component: {fileID: 2884071554364126873}
   m_Layer: 7
   m_Name: EnemyAgent
   m_TagString: Untagged
@@ -267,6 +268,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &7179849648235834388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2424808320274097917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83473c34a2c276543b2e21e5e2eb290a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackForce: 20
+  delay: 0.1
+  OnBeginKnockBack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEndKnockBack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2424808320274097918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,8 +333,8 @@ MonoBehaviour:
   _maxHealth: 100
   _currentHealth: 0
   collectiblePrefab: {fileID: 7943619153645402662, guid: a76c7592afb7310449a325c24a9bac2e, type: 3}
---- !u!61 &2424808320274097915
-BoxCollider2D:
+--- !u!60 &2884071554364126873
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -325,7 +346,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017992973, y: -0.033358563}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -335,6 +356,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.87405205, y: 0.15340939}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.007548809, y: -0.026672482}
+      - {x: -0.9482374, y: -0.017057717}
+      - {x: -1.2077246, y: 0.33921322}
+      - {x: -1.4184818, y: -0.00980258}
+      - {x: -1.2068086, y: -0.3258772}
+      - {x: 1.3577896, y: -0.3409751}
+      - {x: 1.3889017, y: -0.06088692}

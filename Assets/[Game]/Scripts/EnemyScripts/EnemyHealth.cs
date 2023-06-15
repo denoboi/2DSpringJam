@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         //TODO play death animation, play death sound, etc.
         Debug.Log("Enemy died.");
         Destroy(gameObject);
-        var collectible = Instantiate(collectiblePrefab, transform.position, Quaternion.identity);
+        var collectible = Instantiate(collectiblePrefab, transform.position + Vector3.up, Quaternion.identity);
     }
+    
 }

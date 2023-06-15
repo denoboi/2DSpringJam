@@ -9,14 +9,11 @@ public class AgentCloseAttack : MonoBehaviour
     [SerializeField] private float _attackRange = 0.5f;
     [SerializeField] private LayerMask _enemyLayer;
     private AgentAnimation _agentAnimation;
-    private Rigidbody2D _rigidbody;
-    [SerializeField] private float dashForce = 20f; // The force of the dash
-    [SerializeField] private float dashDuration = 0.5f; 
     
     
     [SerializeField] private PlayerData _playerData;
     AgentAnimation AgentAnimation => _agentAnimation ??= GetComponentInChildren<AgentAnimation>();
-    Rigidbody2D Rb2D => _rigidbody ??= GetComponent<Rigidbody2D>();
+
 
     private void Update()
     {
@@ -26,39 +23,33 @@ public class AgentCloseAttack : MonoBehaviour
 
     void Attack()
     {
-        //TODO Play attack animation
-        
-       
         AgentAnimation.Animator.SetTrigger("Attack");
-        //Dash();
         
         // Detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayer);
-
         foreach (Collider2D enemy in hitEnemies)
         {
             // Deal damage to the enemy
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            EnemyKnockBack enemyKnockBack = enemy.GetComponent<EnemyKnockBack>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(_playerData.Damage);
+                enemyKnockBack.PlayKnockBack(gameObject);
+                
+                CameraShake.Instance.ShakeCamera(1,0.1f);
                 Debug.Log("Enemy took damage.");
             }
         }
     }
-    
     void OnDrawGizmosSelected()
     {
         if (_attackPoint == null) return;
         
+        Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
     }
-
-    void Dash()
-    {
-        //Rb2D.velocity = new Vector2(dashForce * transform.localScale.x, Rb2D.velocity) ;
-    }
-
+    
     
 }
 
