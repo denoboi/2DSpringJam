@@ -35,10 +35,15 @@ public class AgentCloseAttack : MonoBehaviour
             // Deal damage to the enemy
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             EnemyKnockBack enemyKnockBack = enemy.GetComponent<EnemyKnockBack>();
-            if (enemyHealth != null)
+            SkeletonHealth skeletonHealth = enemy.GetComponent<SkeletonHealth>();
+            
+            
+            
+            if (enemyHealth != null || skeletonHealth != null)
             {
                 enemyHealth.TakeDamage(DamageValue);
                 enemyKnockBack.PlayKnockBack(gameObject);
+                skeletonHealth.TakeDamage(DamageValue);
                 
                 CameraShake.Instance.ShakeCamera(3,.1f);
                 Debug.Log("Enemy took damage.");

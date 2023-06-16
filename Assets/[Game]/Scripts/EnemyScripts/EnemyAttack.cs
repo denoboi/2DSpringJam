@@ -12,15 +12,26 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] private EnemyData _data;
     
-    private GameObject _player;
+    private Transform _player;
     private EnemyMove _enemyMove;
     private bool _isAttacking;
-    
+    private bool _isPlayerAlive = true;
+
+    private void OnEnable()
+    {
+        EventManager.OnPlayerDead.AddListener(StopAttacking);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerDead.RemoveListener(StopAttacking);
+    }
+
     public EnemyMove EnemyMove => _enemyMove ??= GetComponent<EnemyMove>();
 
     private void Start()
     {
-        _player = PlayerManager.Instance.Player;
+       _player = PlayerManager.Instance.Player.transform;
         SetEnemyValues();
     }
 
@@ -29,7 +40,8 @@ public class EnemyAttack : MonoBehaviour
         if (_isAttacking)
             return;
 
-        
+        if(!_isPlayerAlive)
+            return;
         // Check if the enemy is within attacking range of the player
         CheckDistance();
     }
@@ -42,7 +54,8 @@ public class EnemyAttack : MonoBehaviour
 
     void CheckDistance()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.transform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+        Debug.Log("distancetoplayer: " + distanceToPlayer);
         if (distanceToPlayer <= _attackRange)
         {
             Attack();
@@ -76,6 +89,7 @@ public class EnemyAttack : MonoBehaviour
            
             // Apply damage to the player or trigger any other desired effects
             _player.GetComponentInChildren<PlayerHealth>().TakeDamage(_damage);
+            Debug.Log("player took damage.");
             EnemyMove.StopMoving();
         }
         
@@ -85,6 +99,18 @@ public class EnemyAttack : MonoBehaviour
 
         _isAttacking = false;
         EnemyMove.FollowPlayer();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _attackRange);
+    }
+    
+    private void StopAttacking()
+    {
+        StopAllCoroutines();
+        _isPlayerAlive = false;
     }
 }
 
