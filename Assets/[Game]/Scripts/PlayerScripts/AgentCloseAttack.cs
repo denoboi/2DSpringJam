@@ -39,14 +39,26 @@ public class AgentCloseAttack : MonoBehaviour
             
             
             
-            if (enemyHealth != null || skeletonHealth != null)
+            if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(DamageValue);
                 enemyKnockBack.PlayKnockBack(gameObject);
-                skeletonHealth.TakeDamage(DamageValue);
+                
                 
                 CameraShake.Instance.ShakeCamera(3,.1f);
                 Debug.Log("Enemy took damage.");
+            }
+            else if(skeletonHealth != null)
+            {
+                skeletonHealth.TakeDamage(DamageValue);
+                enemyKnockBack.PlayKnockBack(gameObject);
+                CameraShake.Instance.ShakeCamera(3,.1f);
+                Debug.Log("Skeleton took damage.");
+            }
+            else
+            {
+                continue;
+                Debug.Log("EnemyHealth is null");
             }
         }
     }
