@@ -10,12 +10,16 @@ public class PlayerInput : MonoBehaviour
 
     public event Action OnAttack, OnJumpPressed, OnJumpReleased, OnWeaponSwitch;
     public event Action<Vector2> OnMovement;
+    
+    private PlayerHealth _playerHealth;
+    public PlayerHealth PlayerHealth => _playerHealth ??= GetComponentInChildren<PlayerHealth>();
 
     public KeyCode jumpKey, attackKey, menuKey;
     public UnityEvent OnMenuKeyPressed;
 
     private void Update()
     {
+        if(PlayerHealth.IsPlayerDead) return;
         GetAttackInput();
         GetJumpInput();
         GetMovementInput();

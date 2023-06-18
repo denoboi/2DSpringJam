@@ -24,7 +24,19 @@ public class SkeletonAttack : MonoBehaviour
     public EnemyPatrol EnemyPatrol => _enemyPatrol ??= GetComponent<EnemyPatrol>();
     
     [SerializeField] private EnemyData _data;
-    
+
+    private void OnEnable()
+    {
+        EventManager.OnPlayerDead.AddListener(StopAttacking);
+    }
+
+ 
+    private void OnDisable()
+    {
+        EventManager.OnPlayerDead.RemoveListener(StopAttacking);
+    }
+
+
     private void Start()
     {
         _player = PlayerManager.Instance.Player.transform;
@@ -76,6 +88,9 @@ public class SkeletonAttack : MonoBehaviour
 
     IEnumerator AttackCoroutine()
     {
+        if(_isAttacking)
+            yield break;
+        
         _isAttacking = true;
 
         // Play attack animation
@@ -102,16 +117,24 @@ public class SkeletonAttack : MonoBehaviour
             // Apply damage to the player or trigger any other desired effects
             Debug.Log("Skeleton attacked player");
             _player.GetComponentInChildren<PlayerHealth>().TakeDamage(_damage);
-            _player.GetComponentInChildren<AgentAnimation>().Animator.SetTrigger("GetHit");
+            //_player.GetComponentInChildren<AgentAnimation>().Animator.SetTrigger("GetHit");
             
         }
     }
+    
+    private void StopAttacking()
+    {
+        _isAttacking = false;
+    }
+
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, _attackRange);
     }
+    
+    
 
    
 }

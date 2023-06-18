@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SkeletonEnemy
   m_EditorClassIdentifier: 
   HP: 100
-  Damage: 30
+  Damage: 100
   Speed: 2

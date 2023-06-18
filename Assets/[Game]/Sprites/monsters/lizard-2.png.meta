@@ -174,10 +174,10 @@ TextureImporter:
       name: lizard-2_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 153
-        width: 63
-        height: 41
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +195,10 @@ TextureImporter:
       name: lizard-2_1
       rect:
         serializedVersion: 2
-        x: 115
+        x: 105
         y: 153
-        width: 63
-        height: 41
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: lizard-2_2
       rect:
         serializedVersion: 2
-        x: 220
+        x: 210
         y: 153
-        width: 63
-        height: 40
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: lizard-2_3
       rect:
         serializedVersion: 2
-        x: 325
+        x: 315
         y: 153
-        width: 63
-        height: 39
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +258,10 @@ TextureImporter:
       name: lizard-2_4
       rect:
         serializedVersion: 2
-        x: 430
+        x: 420
         y: 153
-        width: 63
-        height: 40
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +279,10 @@ TextureImporter:
       name: lizard-2_5
       rect:
         serializedVersion: 2
-        x: 535
+        x: 525
         y: 153
-        width: 63
-        height: 41
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +300,10 @@ TextureImporter:
       name: lizard-2_6
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 102
-        width: 63
-        height: 43
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,10 +321,10 @@ TextureImporter:
       name: lizard-2_7
       rect:
         serializedVersion: 2
-        x: 113
+        x: 105
         y: 102
-        width: 65
-        height: 45
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +342,10 @@ TextureImporter:
       name: lizard-2_8
       rect:
         serializedVersion: 2
-        x: 220
+        x: 210
         y: 102
-        width: 63
-        height: 41
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,10 +363,10 @@ TextureImporter:
       name: lizard-2_9
       rect:
         serializedVersion: 2
-        x: 325
+        x: 315
         y: 102
-        width: 63
-        height: 43
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,10 +384,10 @@ TextureImporter:
       name: lizard-2_10
       rect:
         serializedVersion: 2
-        x: 430
+        x: 420
         y: 102
-        width: 63
-        height: 45
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,10 +405,10 @@ TextureImporter:
       name: lizard-2_11
       rect:
         serializedVersion: 2
-        x: 535
+        x: 525
         y: 102
-        width: 60
-        height: 43
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,10 +426,10 @@ TextureImporter:
       name: lizard-2_12
       rect:
         serializedVersion: 2
-        x: 9
-        y: 2
-        width: 60
-        height: 92
+        x: 0
+        y: 51
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,10 +447,10 @@ TextureImporter:
       name: lizard-2_13
       rect:
         serializedVersion: 2
-        x: 116
-        y: 2
-        width: 94
-        height: 90
+        x: 105
+        y: 51
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,10 +468,10 @@ TextureImporter:
       name: lizard-2_14
       rect:
         serializedVersion: 2
-        x: 221
+        x: 210
         y: 51
-        width: 92
-        height: 41
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,10 +489,10 @@ TextureImporter:
       name: lizard-2_15
       rect:
         serializedVersion: 2
-        x: 324
+        x: 315
         y: 51
-        width: 59
-        height: 48
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -510,10 +510,10 @@ TextureImporter:
       name: lizard-2_16
       rect:
         serializedVersion: 2
-        x: 429
+        x: 420
         y: 51
-        width: 58
-        height: 49
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -531,10 +531,10 @@ TextureImporter:
       name: lizard-2_17
       rect:
         serializedVersion: 2
-        x: 540
-        y: 52
-        width: 53
-        height: 49
+        x: 525
+        y: 51
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -552,10 +552,10 @@ TextureImporter:
       name: lizard-2_18
       rect:
         serializedVersion: 2
-        x: 223
-        y: 1
-        width: 50
-        height: 49
+        x: 0
+        y: 0
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -573,10 +573,10 @@ TextureImporter:
       name: lizard-2_19
       rect:
         serializedVersion: 2
-        x: 315
+        x: 105
         y: 0
-        width: 72
-        height: 27
+        width: 105
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,6 +586,48 @@ TextureImporter:
       bones: []
       spriteID: d5e7ce9f87ae7efb0800000000000000
       internalID: -4618465087535153571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lizard-2_20
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 105
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4bfbcb06bdfca9418c94f5b3fae9e78
+      internalID: 1702558398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lizard-2_21
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 0
+        width: 105
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5e721e6ec9db04a93c07e147f910eb
+      internalID: -624247944
       vertices: []
       indices: 
       edges: []
@@ -605,6 +647,7 @@ TextureImporter:
       lizard-2_16: -8344644692704837512
       lizard-2_1: -5289739063730178671
       lizard-2_7: -718711566069861626
+      lizard-2_20: 1702558398
       lizard-2_17: 5489695034242323729
       lizard-2_10: 184899889365238160
       lizard-2_15: -7064335040980764655
@@ -621,6 +664,7 @@ TextureImporter:
       lizard-2_9: 6826533944304186791
       lizard-2_0: 3148971304039954403
       lizard-2_2: -2629092554696481158
+      lizard-2_21: -624247944
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

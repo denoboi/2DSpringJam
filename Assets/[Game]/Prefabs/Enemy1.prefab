@@ -316,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 3
   _attackRate: 1
-  _attackRange: 5
+  _attackRange: 2
   _data: {fileID: 11400000, guid: ccc715cffe536464f97c8df851ca7eb3, type: 2}
 --- !u!114 &2424808320274097912
 MonoBehaviour:

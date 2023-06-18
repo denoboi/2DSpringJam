@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,87 +8,36 @@ public class EnemySpawner : MonoBehaviour
     public class EnemySpawnData
     {
         public GameObject enemyPrefab;
-        public Transform spawnPoint;
+        public Transform[] spawnPoints;
+        public float spawnInterval;
     }
 
     public EnemySpawnData[] enemySpawnData;
-    public float spawnDistanceThreshold = 6f;
-    public float spawnDelay = 5f;
 
-    private Transform player;
     private bool shouldSpawn = true;
-    private bool isPlayerNearSpawn = false;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        StartCoroutine(SpawnEnemies());
     }
 
-
-    private void Update()
+    private IEnumerator SpawnEnemies()
     {
-        StartCoroutine(SpawnEnemyRoutine());
-    }
-
-    private IEnumerator SpawnEnemyRoutine()
-    {
-        while (shouldSpawn)
-        {
-            if (isPlayerNearSpawn)
-            {
-                SpawnEnemy();
-                shouldSpawn = false; // Spawn ettikten sonra spawn işlemi durdurulacak
-            }
-            yield return new WaitForSeconds(spawnDelay);
-        }
-    }
-
-    private void SpawnEnemy()
-    {
-        EnemySpawnData spawnData = GetNearestSpawnData();
-        if (spawnData != null)
-        {
-            Instantiate(spawnData.enemyPrefab, spawnData.spawnPoint.position, Quaternion.identity);
-        }
-    }
-
-    private EnemySpawnData GetNearestSpawnData()
-    {
-        float nearestDistance = float.MaxValue;
-        EnemySpawnData nearestSpawnData = null;
-
         foreach (EnemySpawnData data in enemySpawnData)
         {
-            float distance = Vector3.Distance(data.spawnPoint.position, player.position);
-            if (distance <= spawnDistanceThreshold && distance < nearestDistance)
+            while (shouldSpawn)
             {
-                nearestDistance = distance;
-                nearestSpawnData = data;
+                yield return new WaitForSeconds(data.spawnInterval);
+
+                SpawnRandomEnemy(data);
             }
         }
-
-        return nearestSpawnData;
     }
 
-    public void SetPlayerNearSpawn(bool isNear)
+    private void SpawnRandomEnemy(EnemySpawnData spawnData)
     {
-        isPlayerNearSpawn = isNear;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            SetPlayerNearSpawn(true);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            SetPlayerNearSpawn(false);
-        }
+        var spawnPoint = spawnData.spawnPoints[Random.Range(0, spawnData.spawnPoints.Length)];
+        Instantiate(spawnData.enemyPrefab, spawnPoint.position, Quaternion.identity);
     }
 }
+

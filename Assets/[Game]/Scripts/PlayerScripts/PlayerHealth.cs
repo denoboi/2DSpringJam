@@ -21,31 +21,54 @@ public class PlayerHealth : MonoBehaviour
     {
         _currentHealth = _maxHealth;
     }
+    
+    
 
     // ReSharper disable Unity.PerformanceAnalysis
     public void TakeDamage(int damageAmount)
     {
         if (_currentHealth <= 0)
         {
+            
             Die();
             return;
         }
         
         _currentHealth -= damageAmount;
+        
+        if(IsPlayerDead) 
+            return;
+        
         AgentAnimation.PlayTrigger("GetHit");
 
        
     }
 
-    private void Die()
+    public void Die()
     {
-        // Perform actions when the player dies
-        // For example, play death animation, show game over screen, etc.
-        EventManager.OnPlayerDead?.Invoke();
-        AgentAnimation.PlayTrigger("Dead");
+        if(IsPlayerDead) 
+            return;
+        
         IsPlayerDead = true;
+        AgentAnimation.PlayTrigger("Dead");
+        EventManager.OnPlayerDead?.Invoke();
         Debug.Log("Player died.");
     }
+    
+    public void IncreaseHealth(int amount)
+    {
+        _currentHealth += amount;
+        if (_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+    }
+
+    public bool IsEnemyDead()
+    {
+        return IsPlayerDead;
+    }
+    
 
     
 }
