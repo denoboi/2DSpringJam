@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
         
        
         Destroy(gameObject);
-        var collectible = Instantiate(collectiblePrefab, transform.position + Vector3.up, Quaternion.identity);
+        var collectible = Instantiate(collectiblePrefab, transform.position + Vector3.up / 2, Quaternion.identity);
         
         
         

@@ -32,5 +32,7 @@ public class SkeletonHealth : MonoBehaviour
     {
         Animator.SetBool(isDead, true);
         Destroy(gameObject);
+        var collectible = Instantiate(collectiblePrefab, transform.position + Vector3.up / 2, Quaternion.identity);
+
     }
 }

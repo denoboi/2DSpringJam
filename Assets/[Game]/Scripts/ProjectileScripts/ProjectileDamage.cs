@@ -16,5 +16,14 @@ public class ProjectileDamage : MonoBehaviour
             enemy.TakeDamage(_projectileDamage);
             Destroy(gameObject);
         }
+        
+        SkeletonHealth skeletonEnemy = other.gameObject.GetComponentInChildren<SkeletonHealth>();
+
+        if (skeletonEnemy != null)
+        {
+            skeletonEnemy.TakeDamage(_projectileDamage);
+        }
     }
+    
+   
 }
