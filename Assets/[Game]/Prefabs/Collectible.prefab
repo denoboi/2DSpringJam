@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7943619151605289098}
   - component: {fileID: 7943619151605289097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1539365993
   m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: af06b0d18fb7848488cf355e2c6aff15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7943619153645402660}
   - component: {fileID: 7943619153645402714}
   - component: {fileID: 7943619153645402715}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}

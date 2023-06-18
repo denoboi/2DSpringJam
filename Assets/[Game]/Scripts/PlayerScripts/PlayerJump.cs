@@ -65,7 +65,7 @@ public class PlayerJump : MonoBehaviour
 
         if (CanDoubleJump)
         {
-            Rb2D.velocity = new Vector2(Rb2D.velocity.x, _jumpForce * 1.45f);
+            Rb2D.velocity = new Vector2(Rb2D.velocity.x, _jumpForce * 1.6f);
             _isJumping = true;
             AgentAnimation.PlayTrigger("Fly");
         }

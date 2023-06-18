@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class SkeletonHealth : MonoBehaviour
+public class PatrollingEnemyHealth : MonoBehaviour
 {
     private Animator _animator;
     private static readonly int isDead = Animator.StringToHash("isDead");
@@ -31,8 +31,8 @@ public class SkeletonHealth : MonoBehaviour
     private void Die()
     {
         Animator.SetBool(isDead, true);
-        Destroy(gameObject);
         var collectible = Instantiate(collectiblePrefab, transform.position + Vector3.up / 2, Quaternion.identity);
+        Destroy(gameObject);
 
     }
 }

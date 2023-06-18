@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerScaleUp : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerScaleUp : MonoBehaviour
     public SpriteRenderer SpriteRenderer => _spriteRenderer ??= GetComponent<SpriteRenderer>();
     private Vector3 _initialScale;
     private Vector3 _originalColliderScale;
+    private CinemachineVirtualCamera _cinemachineVirtualCamera;
 
     private void Awake()
     {
@@ -28,9 +30,10 @@ public class PlayerScaleUp : MonoBehaviour
 
     public void OnCollectiblePickup()
     {
-        float scaleMultiplier = 1.2f; // Modify this value to adjust the scale increase
+        float scaleMultiplier = 1.1f; // Modify this value to adjust the scale increase
         ScaleUpCharacter(scaleMultiplier);
         ScaleUpCollider();
+        ChangeCameraSize();
     }
 
     private void ScaleUpCharacter(float scaleFactor)
@@ -51,5 +54,11 @@ public class PlayerScaleUp : MonoBehaviour
         newColliderScale.y = Mathf.Clamp(newColliderScale.y, 0.1f, 0.17f);
         
         Collider2D.transform.localScale = newColliderScale;
+    }
+    
+    public void ChangeCameraSize()
+    {
+        if(transform.localScale.x > 9f)
+            EventManager.OnPlayerSizeChanged.Invoke();
     }
 }

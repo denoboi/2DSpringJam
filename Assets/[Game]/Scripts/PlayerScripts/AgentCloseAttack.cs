@@ -12,11 +12,11 @@ public class AgentCloseAttack : MonoBehaviour
     [field:SerializeField] public int DamageValue { get; set; }
     
     private AgentAnimation _agentAnimation;
-    
+    private PlayerHealth _agentHealth;
     
     
     AgentAnimation AgentAnimation => _agentAnimation ??= GetComponentInChildren<AgentAnimation>();
-
+    public PlayerHealth PlayerHealth => _agentHealth ??= GetComponent<PlayerHealth>();
 
     private void Update()
     {
@@ -26,6 +26,8 @@ public class AgentCloseAttack : MonoBehaviour
 
     void Attack()
     {
+        if(PlayerHealth.IsPlayerDead) return;
+        
         AgentAnimation.Animator.SetTrigger("Attack");
         
         // Detect enemies in range of attack
@@ -35,7 +37,7 @@ public class AgentCloseAttack : MonoBehaviour
             // Deal damage to the enemy
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             EnemyKnockBack enemyKnockBack = enemy.GetComponent<EnemyKnockBack>();
-            SkeletonHealth skeletonHealth = enemy.GetComponent<SkeletonHealth>();
+            PatrollingEnemyHealth patrollingEnemyHealth = enemy.GetComponentInChildren<PatrollingEnemyHealth>();
             
             
             
@@ -48,9 +50,9 @@ public class AgentCloseAttack : MonoBehaviour
                 CameraShake.Instance.ShakeCamera(3,.1f);
                 Debug.Log("Enemy took damage.");
             }
-            else if(skeletonHealth != null)
+            else if(patrollingEnemyHealth != null)
             {
-                skeletonHealth.TakeDamage(DamageValue);
+                patrollingEnemyHealth.TakeDamage(DamageValue);
                 enemyKnockBack.PlayKnockBack(gameObject);
                 CameraShake.Instance.ShakeCamera(3,.1f);
                 Debug.Log("Skeleton took damage.");

@@ -6,4 +6,6 @@ using UnityEngine.Events;
 public static class EventManager
 {
    public static UnityEvent OnPlayerDead = new UnityEvent();
+   public static UnityEvent OnPlayerSizeChanged = new UnityEvent();
+
 }

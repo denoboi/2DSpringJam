@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3347634587309727571}
   - component: {fileID: 3347634587309727572}
   - component: {fileID: 3347634587309727570}
+  - component: {fileID: 3022803362713898989}
   - component: {fileID: 3347634587309727581}
   - component: {fileID: 3347634587309727582}
   - component: {fileID: 3347634587309727583}
@@ -143,6 +144,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3022803362713898989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3347634587309727573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83473c34a2c276543b2e21e5e2eb290a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackForce: 2
+  delay: 0.15
+  OnBeginKnockBack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEndKnockBack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3347634587309727581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996e9cf676c180e4da064b6972945797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 2.2
-  chaseRange: 2.94
+  detectionRange: 5
+  chaseRange: 4
   speed: 2
 --- !u!114 &3347634587309727582
 MonoBehaviour:
@@ -183,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackRate: 1
-  _attackRange: 1.44
+  _attackRange: 3
   _data: {fileID: 11400000, guid: 57b6b2b1568ad9b47baae46ff12d066a, type: 2}
 --- !u!114 &3347634587309727568
 MonoBehaviour:

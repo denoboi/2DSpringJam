@@ -21,11 +21,10 @@ public class ProjectileMovement : MonoBehaviour
     
     private IEnumerator RotateProjectile()
     {
-        while (true)
-        {
-            //transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
+       
+            transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
             yield return null;
-        }
+        
     }
 
     

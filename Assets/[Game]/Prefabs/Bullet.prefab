@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2831505528897071214}
   - component: {fileID: -7006963643163978944}
   - component: {fileID: 9124607374739568171}
+  - component: {fileID: -9212862658832750811}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2831505528897071212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.396, y: -1.261, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,9 +49,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09, y: 0.01}
-  m_Size: {x: 0.31, y: 0.66}
-  m_Direction: 0
+  m_Offset: {x: 0.21621504, y: -0.48111203}
+  m_Size: {x: 1.8849097, y: 0.9951179}
+  m_Direction: 1
 --- !u!114 &-7006963643163978944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d507b8def89840459ca86c929262b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 35
+  Speed: 10
   rotationSpeed: 100
 --- !u!114 &9124607374739568171
 MonoBehaviour:
@@ -77,7 +78,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaaf7ab8589801b4e8c4b2c69eb1a26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData: {fileID: 11400000, guid: 5176a31dbcd5b844d8e5b7a162e50337, type: 2}
+  _projectileDamage: 20
+--- !u!114 &-9212862658832750811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831505528897071212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daeb9233ee92cc846a2424631b52c6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballSprites:
+  - {fileID: 21300000, guid: 6c4370dc6c2f89843b83d1d712da7c5e, type: 3}
+  - {fileID: 21300000, guid: 96e5a1f7f351295428ed904504b8db06, type: 3}
+  - {fileID: 21300000, guid: 196b4be552e20ab4391621c0a0a0a21a, type: 3}
+  - {fileID: 21300000, guid: e6591da2db8ecf44692fa8dc0d604afe, type: 3}
+  - {fileID: 21300000, guid: b7b7d26a043caa2439d21e0288ec7257, type: 3}
+  - {fileID: 21300000, guid: be1402e860c504e4a8d71eba3ba4c225, type: 3}
+  - {fileID: 21300000, guid: d08c4bac1efa762478665fa49e537fa1, type: 3}
+  - {fileID: 21300000, guid: b1e5f681e2478c7489e12db145a9223e, type: 3}
+  - {fileID: 21300000, guid: 65b3ddbca06973046ada1e2224faa48e, type: 3}
+  - {fileID: 21300000, guid: 61525124e37f11f408309c077a059fd4, type: 3}
+  - {fileID: 21300000, guid: 7884918f0f1bd2249baa735b8ad06910, type: 3}
+  - {fileID: 21300000, guid: b42bb24ea597de648906091726811d3a, type: 3}
+  - {fileID: 21300000, guid: 023bce044bdd0b744a7dc101cbaaaa78, type: 3}
+  - {fileID: 21300000, guid: dfb2916d0c4507042915ce6fc7e29800, type: 3}
+  - {fileID: 21300000, guid: b020b683c1b358d4aafd0e7f5d1bec8d, type: 3}
+  - {fileID: 21300000, guid: ec7cd385bc104b54d94f9da3b6c87dc0, type: 3}
+  - {fileID: 21300000, guid: af63b4ca0e7e70649bec8efe06ab427f, type: 3}
+  - {fileID: 21300000, guid: 37e155ea27258eb488f69b764bd1f7bb, type: 3}
+  - {fileID: 21300000, guid: 26a865c8978439c45b3fc1dcebf07030, type: 3}
+  - {fileID: 21300000, guid: 293fe4931e5886a49beacf545989bbbf, type: 3}
+  - {fileID: 21300000, guid: a4d5d4e9fce0b464c8275ab9c6ed60af, type: 3}
+  - {fileID: 21300000, guid: 491c84bc49ce5c745b749b8852c8bdeb, type: 3}
+  - {fileID: 21300000, guid: a056fdbbac354fc449433dc5c43a73bd, type: 3}
+  - {fileID: 21300000, guid: 14da02106b338264fa106340c2486029, type: 3}
+  - {fileID: 21300000, guid: ae322bea82d0d9f48be4207e25c98566, type: 3}
+  - {fileID: 21300000, guid: f0af1deb4ab59814d85c535dfa736d16, type: 3}
+  - {fileID: 21300000, guid: 7da5f3f3e9b1b444793247d8f29c38fd, type: 3}
+  - {fileID: 21300000, guid: ae5420c9483de7d468625ca31544d318, type: 3}
+  - {fileID: 21300000, guid: 4afeaf983718fd94ab6704f9c46058b3, type: 3}
+  - {fileID: 21300000, guid: 87341c4ad4e61fc40b50161539360f29, type: 3}
+  frameRate: 0.01
 --- !u!1 &2831505529329039581
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: -1302593875
   m_SortingLayer: 5
   m_SortingOrder: 14
-  m_Sprite: {fileID: 21300000, guid: 73e60587aa3046e40b56cb77f9c46e15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a5dc960b28ce04409f5ddfb0ea3241c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

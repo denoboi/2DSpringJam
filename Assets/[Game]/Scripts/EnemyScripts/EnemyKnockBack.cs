@@ -19,6 +19,7 @@ public class EnemyKnockBack : MonoBehaviour
         StopAllCoroutines();
         Vector2 direction = (transform.position - sender.transform.position).normalized;
         Rigidbody2D.AddForce(direction * knockBackForce, ForceMode2D.Impulse);
+       // transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         OnBeginKnockBack?.Invoke();
         StartCoroutine(Reset());
     }

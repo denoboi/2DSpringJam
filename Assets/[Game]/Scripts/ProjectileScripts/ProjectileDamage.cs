@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectileDamage : MonoBehaviour
 {
-    [SerializeField] private int _projectileDamage = 10;
+    [SerializeField] private int _projectileDamage = 20;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -17,11 +17,12 @@ public class ProjectileDamage : MonoBehaviour
             Destroy(gameObject);
         }
         
-        SkeletonHealth skeletonEnemy = other.gameObject.GetComponentInChildren<SkeletonHealth>();
+        PatrollingEnemyHealth patrollingEnemyEnemy = other.gameObject.GetComponentInChildren<PatrollingEnemyHealth>();
 
-        if (skeletonEnemy != null)
+        if (patrollingEnemyEnemy != null)
         {
-            skeletonEnemy.TakeDamage(_projectileDamage);
+            patrollingEnemyEnemy.TakeDamage(_projectileDamage);
+            Destroy(gameObject);
         }
     }
     

@@ -9,6 +9,7 @@ public class AgentMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private AgentAnimation _agentAnimation;
     private SpriteRenderer _spriteRenderer;
+    private GroundDetector _groundDetector;
     
     [SerializeField] private float _agentSpeed = 8f;
 
@@ -20,6 +21,8 @@ public class AgentMovement : MonoBehaviour
     
     public SpriteRenderer SpriteRenderer => _spriteRenderer ??= GetComponentInChildren<SpriteRenderer>();
     #endregion
+    
+    public GroundDetector GroundDetector => _groundDetector ??= GetComponentInChildren<GroundDetector>();
   
     private void Start()
     {
@@ -32,7 +35,7 @@ public class AgentMovement : MonoBehaviour
         
         if (Mathf.Abs(input.x) > 0)
         {
-            if (Mathf.Abs(Rb2D.velocity.x) < 0.01f)
+            if (Mathf.Abs(Rb2D.velocity.x) < 0.01f && GroundDetector.IsGrounded )
             {
                 AgentAnimation.PlayAnimation(AgentAnimationState.Run);
                 
