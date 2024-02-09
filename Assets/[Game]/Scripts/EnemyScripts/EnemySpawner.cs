@@ -10,11 +10,14 @@ public class EnemySpawner : MonoBehaviour
         public GameObject enemyPrefab;
         public Transform[] spawnPoints;
         public float spawnInterval;
+        
     }
 
     public EnemySpawnData[] enemySpawnData;
 
     private bool shouldSpawn = true;
+
+    [SerializeField] private int enemyCount;
 
     private void Start()
     {
@@ -30,6 +33,16 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(data.spawnInterval);
 
                 SpawnRandomEnemy(data);
+
+                enemyCount++;
+
+                if(enemyCount> 10)
+
+                        yield break;
+
+                Debug.Log("EnemyCount" + enemyCount);
+
+
             }
         }
     }

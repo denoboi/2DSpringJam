@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f3e200b5a83a649a7c521dba3cc7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 3
+  _damage: 1
   _attackRate: 1
   _attackRange: 3
   _data: {fileID: 11400000, guid: ccc715cffe536464f97c8df851ca7eb3, type: 2}

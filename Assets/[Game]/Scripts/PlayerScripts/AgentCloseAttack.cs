@@ -53,7 +53,7 @@ public class AgentCloseAttack : MonoBehaviour
             else if(patrollingEnemyHealth != null)
             {
                 patrollingEnemyHealth.TakeDamage(DamageValue);
-                enemyKnockBack.PlayKnockBack(gameObject);
+                //enemyKnockBack.PlayKnockBack(gameObject);
                 CameraShake.Instance.ShakeCamera(3,.1f);
                 Debug.Log("Skeleton took damage.");
             }

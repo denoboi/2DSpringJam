@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LizardEnemy
   m_EditorClassIdentifier: 
   HP: 100
-  Damage: 30
+  Damage: 2
   Speed: 2

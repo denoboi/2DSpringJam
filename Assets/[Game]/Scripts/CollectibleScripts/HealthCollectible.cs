@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthCollectible : MonoBehaviour
 {
-    [SerializeField] private int _healthBonus = 20;
+    [SerializeField] private int _healthBonus = 1;
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();

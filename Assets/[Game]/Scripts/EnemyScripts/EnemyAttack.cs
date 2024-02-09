@@ -55,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
     void CheckDistance()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
-        Debug.Log("distancetoplayer: " + distanceToPlayer);
+        
         if (distanceToPlayer <= _attackRange)
         {
             Attack();
